@@ -1,4 +1,4 @@
-import { Controller,Post,Body } from '@nestjs/common';
+import { Controller,Post,Body,Get } from '@nestjs/common';
 import { CreateDeviceDto } from 'src/Type/dto/createdevice.dto';
 import { DevicesService } from './devices.service';
 
@@ -6,6 +6,11 @@ import { DevicesService } from './devices.service';
 export class DevicesController {
 
   constructor(private readonly devicesService:DevicesService){}
+
+@Get()  
+findAll(){
+  return this.devicesService.findAll();
+}
 
 @Post()
 create(@Body() dto:CreateDeviceDto){

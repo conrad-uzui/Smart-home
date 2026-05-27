@@ -8,8 +8,12 @@ import { DeviceStatus } from 'src/Type/enums/device-status.enum';
 export class DevicesService {
   private devices :Device[]=[];
 
+  findAll(){
+    return this.devices;
+  }
+
   create(createdevicedto:CreateDeviceDto){
-  const newDevice ={
+  const newDevice:Device ={
     id:randomUUID(),
     ...createdevicedto,
     status:DeviceStatus.OFF
